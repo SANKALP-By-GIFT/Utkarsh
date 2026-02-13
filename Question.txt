@@ -1,0 +1,188 @@
+🧪 SDP Open Book Examination
+Project Option: Blog Platform (Frontend Only)
+
+Duration: 5 Hours (Development)
+Evaluation: 2:00 – 4:00 PM (Demo + GitHub Review)
+Difficulty: Medium → Moderate Advanced (MCA Level)
+Backend: ❌ Not Allowed (Use Mock APIs only)
+
+📌 Problem Statement
+
+Design and implement a Blog Platform Single Page Application (SPA) using React.
+
+The application must allow users to:
+
+View a list of blog posts
+
+View detailed post pages (nested routing)
+
+Add a new blog post using a validated form
+
+Fetch posts from a mock API
+
+Implement performance optimizations
+
+Write at least one snapshot test
+
+Apply accessibility best practices
+
+The focus of this project is clean architecture, routing patterns, server-state handling, and component design.
+
+🎯 SECTION A — CORE REQUIREMENTS (70 Marks)
+1️⃣ Blog Post Listing Page (20 Marks)
+Functional Requirements
+
+Display list of blog posts fetched from a mock API
+
+Each post card must display:
+
+Title
+
+Author
+
+Short excerpt (first 100 characters)
+
+“Read More” button
+
+Clicking a post navigates to the post details page
+
+Technical Requirements
+
+Use React Router v6
+
+Fetch data using React Query
+
+Handle:
+
+Loading state
+
+Error state
+
+Empty state
+
+Use reusable PostCard component
+
+API Requirement
+
+Use one of:
+
+json-server
+
+MSW
+
+Static JSON file served as mock endpoint
+
+Endpoint example:
+
+GET /posts
+
+2️⃣ Post Details Page (Nested Routing Required) (15 Marks)
+Functional Requirements
+
+Display:
+
+Title
+
+Author
+
+Full content
+
+Publication date
+
+Add a “Back to Posts” navigation link
+
+Technical Requirements
+
+Use nested route:
+
+/posts
+/posts/:postId
+
+
+Fetch individual post using:
+
+GET /posts/:id
+
+
+Must use useParams
+
+Must use React Query caching
+
+3️⃣ Add New Post Form (20 Marks)
+Form Requirements
+
+Fields required:
+
+Title
+
+Author
+
+Category (dropdown)
+
+Content (textarea)
+
+Publish date
+
+Validation Requirements
+
+Use React Hook Form
+
+Use Yup validation schema
+
+Show inline validation errors
+
+Disable submit if invalid
+
+Submission
+
+Simulate API call using React Query useMutation
+
+After successful submission:
+
+Redirect to post list
+
+Show success message
+
+4️⃣ Global State & Architecture (15 Marks)
+
+You must:
+
+Create a clean folder structure
+
+Separate:
+
+Pages
+
+Components
+
+Hooks
+
+Services
+
+Create at least one custom hook:
+
+usePosts()
+OR
+
+useCreatePost()
+
+Explain in comments:
+
+Why you created this abstraction
+
+You must:
+
+5 - Implement React.lazy
+
+Use Suspense
+
+Lazy load at least:
+
+PostDetails page
+
+AddPost page
+
+Explain:
+
+Why code splitting improves performance
+
