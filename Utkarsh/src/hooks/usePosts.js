@@ -12,6 +12,9 @@ Custom hook created to:
 export const usePosts = () => {
   return useQuery({
     queryKey: ["posts"],
-    queryFn: fetchPosts
+    queryFn: fetchPosts,
+    staleTime: Infinity,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false
   });
 };

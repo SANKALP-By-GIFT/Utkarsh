@@ -1,23 +1,19 @@
 import { useParams, Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { fetchPostById } from "../services/api";
-import Loader from "../components/Loader";
+import { useQueryClient } from "@tanstack/react-query";
 
 const PostDetails = () => {
   const { postId } = useParams();
+  const queryClient = useQueryClient();
 
-  const {
-    data: post,
-    isLoading,
-    isError
-  } = useQuery({
-    queryKey: ["post", postId],
-    queryFn: () => fetchPostById(postId),
-    staleTime: 1000 * 60 * 5 // cache for 5 minutes
-  });
+  // Get all posts from cache
+  const posts = queryClient.getQueryData(["posts"]);
 
-  if (isLoading) return <Loader />;
-  if (isError || !post)
+  // Find the selected post
+  const post = posts?.find(
+    (p) => p.id.toString() === postId
+  );
+
+  if (!post)
     return <p className="text-red-500">Post not found.</p>;
 
   return (

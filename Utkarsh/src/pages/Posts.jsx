@@ -6,7 +6,8 @@ const Posts = () => {
 
     if (isLoading) return <p>Loading...</p>;
     if (isError) return <p>Error fetching posts</p>;
-    if (!data.length) return <p>No posts available</p>;
+    if (!data?.length) return <p>No posts available</p>;
+
 
     return (
         <div className="grid gap-6">
