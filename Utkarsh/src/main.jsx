@@ -5,9 +5,7 @@ import "./index.css"
 import App from "./App";
 import Layout from "./components/Layout";
 import Loader from "./components/Loader";
-
 import Posts from "./pages/Posts";
-
 const PostDetails = React.lazy(() => import("./pages/PostDetails"));
 const AddPost = React.lazy(() => import("./pages/AddPost"));
 

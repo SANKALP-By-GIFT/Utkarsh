@@ -5,15 +5,30 @@ import { useNavigate } from "react-router-dom";
 import { useCreatePost } from "../hooks/useCreatePost";
 
 const schema = yup.object({
-  title: yup.string().required("Title is required"),
-  author: yup.string().required("Author is required"),
-  category: yup.string().required("Category is required"),
+  title: yup
+    .string()
+    .matches(/^[A-Za-z\s]+$/, "Title cannot contain numbers or special characters")
+    .required("Title is required"),
+
+  author: yup
+    .string()
+    .matches(/^[A-Za-z\s]+$/, "Author name cannot contain numbers or special characters")
+    .required("Author is required"),
+
+  category: yup
+    .string()
+    .required("Category is required"),
+
   content: yup
     .string()
     .min(50, "Content must be at least 50 characters")
     .required("Content is required"),
-  date: yup.string().required("Publish date is required")
+
+  date: yup
+    .string()
+    .required("Publish date is required")
 });
+
 
 const AddPost = () => {
   const navigate = useNavigate();
